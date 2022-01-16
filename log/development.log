@@ -21830,3 +21830,225 @@ Processing by ActiveStorage::DiskController#show as JPEG
 Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 330)
 
 
+Started GET "/profile/3" for ::1 at 2022-01-16 01:46:13 +0530
+Processing by ProfilesController#view as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:9:in `view'
+  Rendering layout layouts/application.html.erb
+  Rendering home/preview.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10:in `current_user'
+  Rendered shared/_header.html.erb (Duration: 10.9ms | Allocations: 864)
+  [1m[36mProfile Load (1.6ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/views/home/preview.html.erb:10
+  [1m[36mActiveStorage::Attachment Load (1.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Profile"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/shared/profile/_preview.html.erb:7
+  [1m[36mActiveStorage::Blob Load (1.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/profile/_preview.html.erb:8
+  Rendered collection of shared/profile/_card_list_item.html.erb [1 times] (Duration: 0.1ms | Allocations: 15)
+  Rendered shared/profile/_card_list.html.erb (Duration: 0.5ms | Allocations: 157)
+  Rendered shared/profile/_profile_section_with_heading.html.erb (Duration: 0.8ms | Allocations: 275)
+  Rendered shared/profile/_profile_section_with_heading.html.erb (Duration: 0.1ms | Allocations: 50)
+  Rendered collection of shared/profile/_badge.html.erb [2 times] (Duration: 0.1ms | Allocations: 27)
+  Rendered shared/profile/_badge_container.html.erb (Duration: 0.3ms | Allocations: 155)
+  Rendered shared/profile/_profile_section_with_heading.html.erb (Duration: 0.5ms | Allocations: 274)
+  Rendered collection of shared/profile/_badge.html.erb [1 times] (Duration: 0.0ms | Allocations: 17)
+  Rendered shared/profile/_badge_container.html.erb (Duration: 0.2ms | Allocations: 143)
+  Rendered shared/profile/_profile_section_with_heading.html.erb (Duration: 0.4ms | Allocations: 260)
+  Rendered shared/profile/_profile_section_card.html.erb (Duration: 0.1ms | Allocations: 51)
+  [1m[36mExperience Load (2.5ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."profile_id" = $1[0m  [["profile_id", 2]]
+  ↳ app/views/shared/profile/_preview.html.erb:57
+  [1m[36mProject Load (1.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."experience_id" = $1[0m  [["experience_id", 20]]
+  ↳ app/views/shared/profile/_experience_with_description.html.erb:10
+  Rendered collection of shared/profile/_project.html.erb [0 times] (Duration: 0.1ms | Allocations: 16)
+  Rendered shared/profile/_experience_with_description.html.erb (Duration: 4.5ms | Allocations: 1204)
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."experience_id" = $1[0m  [["experience_id", 21]]
+  ↳ app/views/shared/profile/_experience_with_description.html.erb:10
+  Rendered collection of shared/profile/_project.html.erb [0 times] (Duration: 0.0ms | Allocations: 16)
+  Rendered shared/profile/_experience_with_description.html.erb (Duration: 2.2ms | Allocations: 1197)
+  Rendered collection of shared/profile/_experience.erb [2 times] (Duration: 8.5ms | Allocations: 2648)
+  Rendered shared/profile/_profile_section_card.html.erb (Duration: 13.6ms | Allocations: 3820)
+  [1m[36mEducation Load (1.4ms)[0m  [1m[34mSELECT "educations".* FROM "educations" WHERE "educations"."profile_id" = $1[0m  [["profile_id", 2]]
+  ↳ app/views/shared/profile/_preview.html.erb:61
+  Rendered shared/profile/_item_with_description.html.erb (Duration: 0.1ms | Allocations: 50)
+  Rendered collection of shared/profile/_education.erb [1 times] (Duration: 0.3ms | Allocations: 156)
+  Rendered shared/profile/_profile_section_card.html.erb (Duration: 3.8ms | Allocations: 1289)
+  Rendered shared/profile/_preview.html.erb (Duration: 63.5ms | Allocations: 8709)
+  Rendered home/preview.html.erb within layouts/application (Duration: 82.0ms | Allocations: 10589)
+  Rendered layout layouts/application.html.erb (Duration: 104.7ms | Allocations: 13745)
+Completed 200 OK in 180ms (Views: 93.9ms | ActiveRecord: 46.1ms | Allocations: 19057)
+
+
+Started GET "/edit" for ::1 at 2022-01-16 01:46:14 +0530
+Processing by HomeController#edit as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10:in `current_user'
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:11:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering home/edit.html.erb within layouts/application
+  Rendered shared/input/buttons/_primary.html.erb (Duration: 0.1ms | Allocations: 76)
+  Rendered shared/_header.html.erb (Duration: 0.4ms | Allocations: 206)
+  [1m[36mActiveStorage::Attachment Load (2.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Profile"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/home/edit.html.erb:19
+  [1m[36mActiveStorage::Blob Load (1.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/home/edit.html.erb:20
+  Rendered shared/_multiple_inputs_message.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered shared/_multiple_inputs_message.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered shared/_multiple_inputs_message.html.erb (Duration: 0.0ms | Allocations: 39)
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e9441e9b6fec667f69193fc0b77307c344f6f579/ProfilePic.png" for ::1 at 2022-01-16 01:46:14 +0530
+  Rendered shared/_edit_section.html.erb (Duration: 50.4ms | Allocations: 7070)
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e9441e9b6fec667f69193fc0b77307c344f6f579", "filename"=>"ProfilePic"}
+  [1m[36mEducation Load (1.2ms)[0m  [1m[34mSELECT "educations".* FROM "educations" WHERE "educations"."profile_id" = $1[0m  [["profile_id", 3]]
+  ↳ app/views/home/edit.html.erb:46
+  Rendered shared/input/buttons/_add.html.erb (Duration: 0.1ms | Allocations: 62)
+  Rendered shared/_edit_section.html.erb (Duration: 5.3ms | Allocations: 1949)
+  [1m[36mExperience Load (0.8ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."profile_id" = $1[0m  [["profile_id", 3]]
+  ↳ app/views/home/edit.html.erb:53
+  Rendered shared/input/buttons/_add.html.erb (Duration: 0.0ms | Allocations: 55)
+  Rendered shared/_edit_section.html.erb (Duration: 1.6ms | Allocations: 1040)
+  Rendered home/edit.html.erb within layouts/application (Duration: 59.3ms | Allocations: 10922)
+  Rendered layout layouts/application.html.erb (Duration: 63.2ms | Allocations: 14743)
+Completed 200 OK in 69ms (Views: 57.6ms | ActiveRecord: 7.6ms | Allocations: 16629)
+
+
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[36m  Disk Storage (0.8ms) [0m[34mGenerated URL for file at key: yeuwpfwbd0gchbu0p27pzib8o02k (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlV1YxZDNCbWQySmtNR2RqYUdKMU1IQXlOM0I2YVdJNGJ6QXlhd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUjJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxCeWIyWnBiR1ZRYVdNdWNHNW5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bWFXeGxVR2xqTG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIyLTAxLTE1VDIwOjIxOjE0LjIxMloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--50f8b740b4622a2f991ce9ba685ac03fce2ed6f5/ProfilePic.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlV1YxZDNCbWQySmtNR2RqYUdKMU1IQXlOM0I2YVdJNGJ6QXlhd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUjJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxCeWIyWnBiR1ZRYVdNdWNHNW5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bWFXeGxVR2xqTG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIyLTAxLTE1VDIwOjIxOjE0LjIxMloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--50f8b740b4622a2f991ce9ba685ac03fce2ed6f5/ProfilePic.png
+Completed 302 Found in 19ms (ActiveRecord: 7.9ms | Allocations: 11696)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlV1YxZDNCbWQySmtNR2RqYUdKMU1IQXlOM0I2YVdJNGJ6QXlhd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUjJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxCeWIyWnBiR1ZRYVdNdWNHNW5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bWFXeGxVR2xqTG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIyLTAxLTE1VDIwOjIxOjE0LjIxMloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--50f8b740b4622a2f991ce9ba685ac03fce2ed6f5/ProfilePic.png" for ::1 at 2022-01-16 01:46:14 +0530
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"ProfilePic"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 314)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--372ae2ea1107de42e9fae3413c42296fbc4b9417/ProfilePic.jpeg" for ::1 at 2022-01-16 01:46:14 +0530
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--372ae2ea1107de42e9fae3413c42296fbc4b9417", "filename"=>"ProfilePic"}
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: zak91aehz154hw3an4gmr7yzk6dz (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlbUZyT1RGaFpXaDZNVFUwYUhjellXNDBaMjF5TjNsNmF6WmtlZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpU1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxCeWIyWnBiR1ZRYVdNdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuVUhKdlptbHNaVkJwWXk1cWNHVm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZhbkJsWndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMi0wMS0xNVQyMDoyMToxNC4zNDdaIiwicHVyIjoiYmxvYl9rZXkifX0=--c98f4bb27d6cd9d5e3d919bbd212fcfa601ca2db/ProfilePic.jpeg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlbUZyT1RGaFpXaDZNVFUwYUhjellXNDBaMjF5TjNsNmF6WmtlZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpU1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxCeWIyWnBiR1ZRYVdNdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuVUhKdlptbHNaVkJwWXk1cWNHVm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZhbkJsWndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMi0wMS0xNVQyMDoyMToxNC4zNDdaIiwicHVyIjoiYmxvYl9rZXkifX0=--c98f4bb27d6cd9d5e3d919bbd212fcfa601ca2db/ProfilePic.jpeg
+Completed 302 Found in 59ms (ActiveRecord: 37.7ms | Allocations: 5834)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlbUZyT1RGaFpXaDZNVFUwYUhjellXNDBaMjF5TjNsNmF6WmtlZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpU1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxCeWIyWnBiR1ZRYVdNdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuVUhKdlptbHNaVkJwWXk1cWNHVm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZhbkJsWndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMi0wMS0xNVQyMDoyMToxNC4zNDdaIiwicHVyIjoiYmxvYl9rZXkifX0=--c98f4bb27d6cd9d5e3d919bbd212fcfa601ca2db/ProfilePic.jpeg" for ::1 at 2022-01-16 01:46:14 +0530
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"ProfilePic"}
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms | Allocations: 315)
+
+
+Started GET "/profile/3" for ::1 at 2022-01-16 02:09:11 +0530
+Processing by ProfilesController#view as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:9:in `view'
+  Rendering layout layouts/application.html.erb
+  Rendering home/preview.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10:in `current_user'
+  Rendered shared/_header.html.erb (Duration: 2.9ms | Allocations: 864)
+  [1m[36mProfile Load (1.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/views/home/preview.html.erb:10
+  [1m[36mActiveStorage::Attachment Load (1.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Profile"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/shared/profile/_preview.html.erb:7
+  [1m[36mActiveStorage::Blob Load (1.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/profile/_preview.html.erb:8
+  Rendered collection of shared/profile/_card_list_item.html.erb [1 times] (Duration: 0.1ms | Allocations: 15)
+  Rendered shared/profile/_card_list.html.erb (Duration: 1.0ms | Allocations: 157)
+  Rendered shared/profile/_profile_section_with_heading.html.erb (Duration: 1.2ms | Allocations: 275)
+  Rendered shared/profile/_profile_section_with_heading.html.erb (Duration: 0.1ms | Allocations: 50)
+  Rendered collection of shared/profile/_badge.html.erb [2 times] (Duration: 0.0ms | Allocations: 27)
+  Rendered shared/profile/_badge_container.html.erb (Duration: 0.2ms | Allocations: 155)
+  Rendered shared/profile/_profile_section_with_heading.html.erb (Duration: 0.4ms | Allocations: 274)
+  Rendered collection of shared/profile/_badge.html.erb [1 times] (Duration: 0.0ms | Allocations: 17)
+  Rendered shared/profile/_badge_container.html.erb (Duration: 0.2ms | Allocations: 143)
+  Rendered shared/profile/_profile_section_with_heading.html.erb (Duration: 0.3ms | Allocations: 260)
+  Rendered shared/profile/_profile_section_card.html.erb (Duration: 0.1ms | Allocations: 51)
+  [1m[36mExperience Load (1.5ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."profile_id" = $1[0m  [["profile_id", 2]]
+  ↳ app/views/shared/profile/_preview.html.erb:57
+  [1m[36mProject Load (1.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."experience_id" = $1[0m  [["experience_id", 20]]
+  ↳ app/views/shared/profile/_experience_with_description.html.erb:10
+  Rendered collection of shared/profile/_project.html.erb [0 times] (Duration: 0.0ms | Allocations: 16)
+  Rendered shared/profile/_experience_with_description.html.erb (Duration: 3.8ms | Allocations: 1203)
+  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."experience_id" = $1[0m  [["experience_id", 21]]
+  ↳ app/views/shared/profile/_experience_with_description.html.erb:10
+  Rendered collection of shared/profile/_project.html.erb [0 times] (Duration: 0.0ms | Allocations: 16)
+  Rendered shared/profile/_experience_with_description.html.erb (Duration: 2.8ms | Allocations: 1197)
+  Rendered collection of shared/profile/_experience.erb [2 times] (Duration: 8.0ms | Allocations: 2647)
+  Rendered shared/profile/_profile_section_card.html.erb (Duration: 12.6ms | Allocations: 3819)
+  [1m[36mEducation Load (1.2ms)[0m  [1m[34mSELECT "educations".* FROM "educations" WHERE "educations"."profile_id" = $1[0m  [["profile_id", 2]]
+  ↳ app/views/shared/profile/_preview.html.erb:61
+  Rendered shared/profile/_item_with_description.html.erb (Duration: 0.1ms | Allocations: 50)
+  Rendered collection of shared/profile/_education.erb [1 times] (Duration: 0.3ms | Allocations: 156)
+  Rendered shared/profile/_profile_section_card.html.erb (Duration: 2.6ms | Allocations: 1289)
+  Rendered shared/profile/_preview.html.erb (Duration: 28.3ms | Allocations: 8707)
+  Rendered home/preview.html.erb within layouts/application (Duration: 34.5ms | Allocations: 10587)
+  Rendered layout layouts/application.html.erb (Duration: 42.7ms | Allocations: 13741)
+Completed 200 OK in 110ms (Views: 33.0ms | ActiveRecord: 49.1ms | Allocations: 19022)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e9441e9b6fec667f69193fc0b77307c344f6f579/ProfilePic.png" for ::1 at 2022-01-16 02:09:12 +0530
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e9441e9b6fec667f69193fc0b77307c344f6f579", "filename"=>"ProfilePic"}
+  [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: yeuwpfwbd0gchbu0p27pzib8o02k (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlV1YxZDNCbWQySmtNR2RqYUdKMU1IQXlOM0I2YVdJNGJ6QXlhd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUjJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxCeWIyWnBiR1ZRYVdNdWNHNW5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bWFXeGxVR2xqTG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIyLTAxLTE1VDIwOjQ0OjEyLjAzMVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--98983cd78d33354e8f725e85e07ed129f9c51fd7/ProfilePic.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlV1YxZDNCbWQySmtNR2RqYUdKMU1IQXlOM0I2YVdJNGJ6QXlhd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUjJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxCeWIyWnBiR1ZRYVdNdWNHNW5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bWFXeGxVR2xqTG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIyLTAxLTE1VDIwOjQ0OjEyLjAzMVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--98983cd78d33354e8f725e85e07ed129f9c51fd7/ProfilePic.png
+Completed 302 Found in 3ms (ActiveRecord: 0.8ms | Allocations: 1636)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlV1YxZDNCbWQySmtNR2RqYUdKMU1IQXlOM0I2YVdJNGJ6QXlhd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUjJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxCeWIyWnBiR1ZRYVdNdWNHNW5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bWFXeGxVR2xqTG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIyLTAxLTE1VDIwOjQ0OjEyLjAzMVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--98983cd78d33354e8f725e85e07ed129f9c51fd7/ProfilePic.png" for ::1 at 2022-01-16 02:09:12 +0530
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"ProfilePic"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 314)
+
+
+Started GET "/edit" for ::1 at 2022-01-16 02:09:12 +0530
+Processing by HomeController#edit as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10:in `current_user'
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:11:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering home/edit.html.erb within layouts/application
+  Rendered shared/input/buttons/_primary.html.erb (Duration: 0.2ms | Allocations: 76)
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 206)
+  [1m[36mActiveStorage::Attachment Load (1.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Profile"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/home/edit.html.erb:19
+  [1m[36mActiveStorage::Blob Load (1.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/home/edit.html.erb:20
+  Rendered shared/_multiple_inputs_message.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered shared/_multiple_inputs_message.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered shared/_multiple_inputs_message.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered shared/_edit_section.html.erb (Duration: 8.5ms | Allocations: 3036)
+  [1m[36mEducation Load (0.6ms)[0m  [1m[34mSELECT "educations".* FROM "educations" WHERE "educations"."profile_id" = $1[0m  [["profile_id", 3]]
+  ↳ app/views/home/edit.html.erb:46
+  Rendered shared/input/buttons/_add.html.erb (Duration: 0.1ms | Allocations: 62)
+  Rendered shared/_edit_section.html.erb (Duration: 2.6ms | Allocations: 1051)
+  [1m[36mExperience Load (0.5ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."profile_id" = $1[0m  [["profile_id", 3]]
+  ↳ app/views/home/edit.html.erb:53
+  Rendered shared/input/buttons/_add.html.erb (Duration: 0.0ms | Allocations: 55)
+  Rendered shared/_edit_section.html.erb (Duration: 1.1ms | Allocations: 1040)
+  Rendered home/edit.html.erb within layouts/application (Duration: 13.9ms | Allocations: 5842)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 8996)
+Completed 200 OK in 25ms (Views: 15.3ms | ActiveRecord: 5.0ms | Allocations: 10881)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--372ae2ea1107de42e9fae3413c42296fbc4b9417/ProfilePic.jpeg" for ::1 at 2022-01-16 02:09:12 +0530
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--372ae2ea1107de42e9fae3413c42296fbc4b9417", "filename"=>"ProfilePic"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[36m  Disk Storage (0.4ms) [0m[34mGenerated URL for file at key: zak91aehz154hw3an4gmr7yzk6dz (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlbUZyT1RGaFpXaDZNVFUwYUhjellXNDBaMjF5TjNsNmF6WmtlZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpU1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxCeWIyWnBiR1ZRYVdNdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuVUhKdlptbHNaVkJwWXk1cWNHVm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZhbkJsWndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMi0wMS0xNVQyMDo0NDoxMi41MTFaIiwicHVyIjoiYmxvYl9rZXkifX0=--56a600028649b2da592128cb80c711b174be306d/ProfilePic.jpeg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlbUZyT1RGaFpXaDZNVFUwYUhjellXNDBaMjF5TjNsNmF6WmtlZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpU1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxCeWIyWnBiR1ZRYVdNdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuVUhKdlptbHNaVkJwWXk1cWNHVm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZhbkJsWndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMi0wMS0xNVQyMDo0NDoxMi41MTFaIiwicHVyIjoiYmxvYl9rZXkifX0=--56a600028649b2da592128cb80c711b174be306d/ProfilePic.jpeg
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 1637)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlbUZyT1RGaFpXaDZNVFUwYUhjellXNDBaMjF5TjNsNmF6WmtlZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpU1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxCeWIyWnBiR1ZRYVdNdWFuQmxaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuVUhKdlptbHNaVkJwWXk1cWNHVm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZhbkJsWndZN0JsUTZFWE5sY25acFkyVmZibUZ0WlRvS2JHOWpZV3c9IiwiZXhwIjoiMjAyMi0wMS0xNVQyMDo0NDoxMi41MTFaIiwicHVyIjoiYmxvYl9rZXkifX0=--56a600028649b2da592128cb80c711b174be306d/ProfilePic.jpeg" for ::1 at 2022-01-16 02:09:12 +0530
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"ProfilePic"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 315)
+
+
