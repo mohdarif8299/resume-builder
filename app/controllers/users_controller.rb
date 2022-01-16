@@ -13,9 +13,8 @@ class UsersController < ApplicationController
     end
 
     user = User.create(create_params(params))
-    user.profile.create
+    Profile.create(user: user)
     flash.now[:success] = 'Account Created Successfully'
     render('sessions/new')
   end
-
 end
