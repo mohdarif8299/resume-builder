@@ -1,10 +1,10 @@
 # Resume Builder
 Features
-  - [ ] Login
-  - [ ] Signup
-  - [ ] Add Profile
-  - [ ] Add Education
-  - [ ] Add Experience with Projects
+  - [x] Login
+  - [x] Signup
+  - [x] Add Profile
+  - [x] Add Education
+  - [x] Add Experience with Projects
  
  # Screenshots
  <img width="840" alt="Screenshot 2022-01-17 at 1 32 18 AM" src="https://user-images.githubusercontent.com/31352655/149676492-f8d2040b-5904-4a4d-b23b-e56da6998f77.png">
