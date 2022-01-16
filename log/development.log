@@ -22426,3 +22426,205 @@ Processing by ActiveStorage::DiskController#show as PNG
 Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 488)
 
 
+Started GET "/" for ::1 at 2022-01-16 17:51:59 +0530
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10:in `current_user'
+Redirected to http://localhost:3000/login
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10:in `current_user'
+Completed 302 Found in 48ms (ActiveRecord: 22.9ms | Allocations: 8010)
+
+
+Started GET "/login" for ::1 at 2022-01-16 17:51:59 +0530
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 670)
+  Rendered shared/_alert.html.erb (Duration: 0.4ms | Allocations: 198)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 4629)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 6104)
+
+
+Started GET "/create" for ::1 at 2022-01-16 17:52:01 +0530
+Processing by UsersController#create as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/signup.html.erb within layouts/application
+  Rendered home/signup.html.erb within layouts/application (Duration: 2.8ms | Allocations: 811)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 4292)
+Completed 200 OK in 18ms (Views: 17.7ms | ActiveRecord: 0.0ms | Allocations: 5996)
+
+
+Started POST "/signup" for ::1 at 2022-01-16 17:52:03 +0530
+Processing by UsersController#create_user as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Signup"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `create_user'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14:in `create_user'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `create_user'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14:in `create_user'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create_user'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create_user'
+  [1m[36mProfile Create (3.2ms)[0m  [1m[32mINSERT INTO "profiles" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2022-01-16 12:22:03.287280"], ["updated_at", "2022-01-16 12:22:03.287280"]]
+  ↳ app/controllers/users_controller.rb:15:in `create_user'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:15:in `create_user'
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 672)
+  Rendered shared/_alert.html.erb (Duration: 0.3ms | Allocations: 201)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 4550)
+Completed 200 OK in 97ms (Views: 8.6ms | ActiveRecord: 48.9ms | Allocations: 34711)
+
+
+Started GET "/create" for ::1 at 2022-01-16 17:56:41 +0530
+Processing by UsersController#create as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/signup.html.erb within layouts/application
+  Rendered home/signup.html.erb within layouts/application (Duration: 0.9ms | Allocations: 743)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 4264)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 5680)
+
+
+Started GET "/create" for ::1 at 2022-01-16 18:00:38 +0530
+Processing by UsersController#create as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/signup.html.erb within layouts/application
+  Rendered home/signup.html.erb within layouts/application (Duration: 2.9ms | Allocations: 746)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 4289)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.0ms | Allocations: 5659)
+
+
+Started GET "/create" for ::1 at 2022-01-16 18:03:17 +0530
+Processing by UsersController#create as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/signup.html.erb within layouts/application
+  Rendered home/signup.html.erb within layouts/application (Duration: 3.1ms | Allocations: 742)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 4284)
+Completed 200 OK in 22ms (Views: 20.5ms | Allocations: 5637)
+
+
+Started GET "/create" for ::1 at 2022-01-16 18:04:37 +0530
+Processing by UsersController#create as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/signup.html.erb within layouts/application
+  Rendered home/signup.html.erb within layouts/application (Duration: 1.2ms | Allocations: 747)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 4269)
+Completed 200 OK in 8ms (Views: 7.4ms | Allocations: 5678)
+
+
+Started GET "/create" for ::1 at 2022-01-16 18:04:54 +0530
+Processing by UsersController#create as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/signup.html.erb within layouts/application
+  Rendered home/signup.html.erb within layouts/application (Duration: 3.4ms | Allocations: 739)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 4275)
+Completed 200 OK in 26ms (Views: 22.9ms | Allocations: 5620)
+
+
+Started GET "/create" for ::1 at 2022-01-16 18:05:18 +0530
+Processing by UsersController#create as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/signup.html.erb within layouts/application
+  Rendered home/signup.html.erb within layouts/application (Duration: 4.0ms | Allocations: 742)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 4284)
+Completed 200 OK in 22ms (Views: 20.5ms | Allocations: 5636)
+
+
+Started GET "/create" for ::1 at 2022-01-16 18:05:32 +0530
+Processing by UsersController#create as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/signup.html.erb within layouts/application
+  Rendered home/signup.html.erb within layouts/application (Duration: 8.0ms | Allocations: 740)
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | Allocations: 4282)
+Completed 200 OK in 26ms (Views: 24.3ms | Allocations: 5634)
+
+
+Started GET "/profile/3" for ::1 at 2022-01-16 18:07:55 +0530
+Processing by ProfilesController#view as HTML
+  Parameters: {"id"=>"3"}
+Started GET "/create" for ::1 at 2022-01-16 18:07:55 +0530
+Processing by UsersController#create as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/signup.html.erb within layouts/application
+  Rendered home/signup.html.erb within layouts/application (Duration: 1.7ms | Allocations: 329)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 3411)
+Completed 200 OK in 11ms (Views: 9.5ms | Allocations: 3879)
+
+
+Started GET "/create" for ::1 at 2022-01-16 18:07:55 +0530
+Processing by UsersController#create as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/signup.html.erb within layouts/application
+  Rendered home/signup.html.erb within layouts/application (Duration: 3.0ms | Allocations: 744)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 4286)
+Completed 200 OK in 12ms (Views: 12.0ms | Allocations: 5654)
+
+
+  [1m[36mUser Load (10.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/profiles_controller.rb:9:in `view'
+  Rendering layout layouts/application.html.erb
+  Rendering home/preview.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10:in `current_user'
+  Rendered shared/_header.html.erb (Duration: 4.7ms | Allocations: 1254)
+  [1m[36mProfile Load (1.0ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles" WHERE "profiles"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/views/home/preview.html.erb:10
+  [1m[36mActiveStorage::Attachment Load (1.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Profile"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/shared/profile/_preview.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shared/profile/_preview.html.erb:8
+  Rendered collection of shared/profile/_card_list_item.html.erb [1 times] (Duration: 0.2ms | Allocations: 155)
+  Rendered shared/profile/_card_list.html.erb (Duration: 2.2ms | Allocations: 984)
+  Rendered shared/profile/_profile_section_with_heading.html.erb (Duration: 2.8ms | Allocations: 1369)
+  Rendered shared/profile/_profile_section_with_heading.html.erb (Duration: 0.0ms | Allocations: 56)
+  Rendered collection of shared/profile/_badge.html.erb [2 times] (Duration: 0.2ms | Allocations: 156)
+  Rendered shared/profile/_badge_container.html.erb (Duration: 0.9ms | Allocations: 515)
+  Rendered shared/profile/_profile_section_with_heading.html.erb (Duration: 1.2ms | Allocations: 767)
+  Rendered collection of shared/profile/_badge.html.erb [1 times] (Duration: 0.0ms | Allocations: 17)
+  Rendered shared/profile/_badge_container.html.erb (Duration: 0.1ms | Allocations: 143)
+  Rendered shared/profile/_profile_section_with_heading.html.erb (Duration: 0.2ms | Allocations: 262)
+  Rendered shared/profile/_profile_section_card.html.erb (Duration: 0.2ms | Allocations: 159)
+  [1m[36mExperience Load (1.5ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."profile_id" = $1[0m  [["profile_id", 2]]
+  ↳ app/views/shared/profile/_preview.html.erb:57
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."experience_id" = $1[0m  [["experience_id", 20]]
+  ↳ app/views/shared/profile/_experience_with_description.html.erb:10
+  Rendered collection of shared/profile/_project.html.erb [0 times] (Duration: 0.0ms | Allocations: 35)
+  Rendered shared/profile/_experience_with_description.html.erb (Duration: 6.4ms | Allocations: 2888)
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."experience_id" = $1[0m  [["experience_id", 21]]
+  ↳ app/views/shared/profile/_experience_with_description.html.erb:10
+  Rendered collection of shared/profile/_project.html.erb [0 times] (Duration: 0.0ms | Allocations: 16)
+  Rendered shared/profile/_experience_with_description.html.erb (Duration: 1.3ms | Allocations: 1198)
+  Rendered collection of shared/profile/_experience.erb [2 times] (Duration: 11.0ms | Allocations: 5974)
+  Rendered shared/profile/_profile_section_card.html.erb (Duration: 32.4ms | Allocations: 15671)
+  [1m[36mEducation Load (1.2ms)[0m  [1m[34mSELECT "educations".* FROM "educations" WHERE "educations"."profile_id" = $1[0m  [["profile_id", 2]]
+  ↳ app/views/shared/profile/_preview.html.erb:61
+  Rendered shared/profile/_item_with_description.html.erb (Duration: 0.5ms | Allocations: 214)
+  Rendered collection of shared/profile/_education.erb [1 times] (Duration: 1.1ms | Allocations: 606)
+  Rendered shared/profile/_profile_section_card.html.erb (Duration: 15.8ms | Allocations: 8763)
+  Rendered shared/profile/_preview.html.erb (Duration: 96.0ms | Allocations: 47351)
+  Rendered home/preview.html.erb within layouts/application (Duration: 132.3ms | Allocations: 59809)
+  Rendered layout layouts/application.html.erb (Duration: 135.9ms | Allocations: 63033)
+Completed 200 OK in 310ms (Views: 84.1ms | ActiveRecord: 164.9ms | Allocations: 86475)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e9441e9b6fec667f69193fc0b77307c344f6f579/ProfilePic.png" for ::1 at 2022-01-16 18:07:56 +0530
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e9441e9b6fec667f69193fc0b77307c344f6f579", "filename"=>"ProfilePic"}
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[36m  Disk Storage (4.9ms) [0m[34mGenerated URL for file at key: yeuwpfwbd0gchbu0p27pzib8o02k (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlV1YxZDNCbWQySmtNR2RqYUdKMU1IQXlOM0I2YVdJNGJ6QXlhd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUjJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxCeWIyWnBiR1ZRYVdNdWNHNW5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bWFXeGxVR2xqTG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIyLTAxLTE2VDEyOjQyOjU2LjI2NVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--5db25eea40d6d43c48fce054175d965da8013efb/ProfilePic.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlV1YxZDNCbWQySmtNR2RqYUdKMU1IQXlOM0I2YVdJNGJ6QXlhd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUjJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxCeWIyWnBiR1ZRYVdNdWNHNW5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bWFXeGxVR2xqTG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIyLTAxLTE2VDEyOjQyOjU2LjI2NVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--5db25eea40d6d43c48fce054175d965da8013efb/ProfilePic.png
+Completed 302 Found in 30ms (ActiveRecord: 8.0ms | Allocations: 15516)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhlV1YxZDNCbWQySmtNR2RqYUdKMU1IQXlOM0I2YVdJNGJ6QXlhd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUjJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxCeWIyWnBiR1ZRYVdNdWNHNW5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRRY205bWFXeGxVR2xqTG5CdVp3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEbWx0WVdkbEwzQnVad1k3QmxRNkVYTmxjblpwWTJWZmJtRnRaVG9LYkc5allXdz0iLCJleHAiOiIyMDIyLTAxLTE2VDEyOjQyOjU2LjI2NVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--5db25eea40d6d43c48fce054175d965da8013efb/ProfilePic.png" for ::1 at 2022-01-16 18:07:56 +0530
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"ProfilePic"}
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms | Allocations: 488)
+
+

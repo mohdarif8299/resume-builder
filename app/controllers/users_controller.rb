@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   include UsersHelper
+
   def create
     render('home/signup')
   end
@@ -12,8 +13,9 @@ class UsersController < ApplicationController
     end
 
     user = User.create(create_params(params))
-    Profile.create(user: user)
+    user.profile.create
     flash.now[:success] = 'Account Created Successfully'
     render('sessions/new')
   end
+
 end
